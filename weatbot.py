@@ -20,12 +20,12 @@ def send_echo(message):
         ans = f"В городе {message.text} сейчас {w.get_detailed_status()} \n"
         ans += f"Температура в районе {round(temp)} градусов"
 
-        # if temp < 10:
-        #     ans += 'Очень холодно, оденься потеплее))'
-        # elif temp < 17:
-        #     ans += 'Прохладно, лучше оденься:)'
-        # else:
-        #     ans += 'Не холодно, хоть в трусах иди:)'
+        if temp < 10:
+            ans += 'Очень холодно, оденься потеплее))'
+        elif temp < 17:
+            ans += 'Прохладно, лучше оденься:)'
+        else:
+            ans += 'Не холодно, хоть в трусах иди:)'
 
         bot.send_message(message.chat.id, ans)
     except pyowm.exceptions.api_response_error.NotFoundError:
